@@ -1,3 +1,16 @@
+/*
+fourFuncCalc.v
+
+DESCRIPTION:
+
+OUTPUTS:
+
+INPUTS:
+
+AUTHOR(S):
+Philip David
+10/23/15
+*/
 module fourFuncCalc(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 						  clk, sw, key);
 	output [9:0] ledr;
@@ -14,8 +27,7 @@ module fourFuncCalc(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	
 	assign sramData = (sramNOe | sramNCs) ? sramlData : 8'bZ ;
 	
-	reg [7:0] computeReg1, computeReg2;
-	reg [15:0] resultReg;
+	reg [1:0] state;
 	
 	parameter fnIdle 		= 2'b00;
 	parameter fnStart 	= 2'b01;
@@ -27,12 +39,13 @@ module fourFuncCalc(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	parameter opMul = 2'b10;
 	parameter opDiv = 2'b11;
 	
-	assign ledr[6:0] = sw[9:3] % {sw[2:0], key[3:0]};
+	reg [7:0] 	computeReg1, computeReg2;
+	reg [7:0] 	resultReg, remainderReg;
 	
-	integer i;
+	integer i, resultNum;
 	
 	always @(posedge key[0]) begin
-		case (key[1:0])
+		case (sw[1:0])
 			fnIdle: // SW[1:0] = 00 
 			begin
 				
@@ -49,39 +62,81 @@ module fourFuncCalc(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 			fnCompute: // SW[1:0] = 10
 			begin
 				for (i = 0; i < 32; i = i + 1) begin
-					case (key[3:2]) 
+					case (sw[3:2]) 
 						opAdd: // SW[3:2] = 00
 						begin
-						
+							// load computeReg1
+							// load computeReg2
+							// store in wideResultReg
+							// write from wideResultReg
 						end
 						
 						opSub: // SW[3:2] = 01
 						begin
-						
+							// load computeReg1
+							// load computeReg2
+							// store in byteResultReg
+							// write from byteResultReg
 						end
 						
 						opMul: // SW[3:2] = 10
 						begin
-						
+							// load computeReg1
+							// load computeReg2
+							// store in wideResultReg
+							// write from wideResultReg
 						end
 						
 						opDiv: // SW[3:2] = 11
 						begin
-						
+							// load computeReg1
+							// load computeReg2
+							// store in byteResultReg
+							// store in remainderReg
+							// write from resultReg
 						end
 					endcase
 				end
 			end
 			
 			fnDisplay: // SW[1:0] = 11
-			/*
-			Add or Subtract: Display the result on LEDR[7:0]
-			Multiply: Display result on LEDR[7:0]
-			Divide: Quotient on LEDR[7:4] and remainder on LEDR[3:0]
-			*/
+				
 			begin
 			
 			end
 		endcase
 	end
+	
+//	always @(posedge clk) begin
+//		if (presentState == fnDisplay) begin
+//			if (resultNum > 15) resultNum = 0;
+//			/*
+//			Add or Subtract: Display the result on LEDR[7:0]
+//			Multiply: Display result on LEDR[7:0]
+//			Divide: Quotient on LEDR[7:4] and remainder on LEDR[3:0]
+//			*/
+//			case (sw[3:2]) 
+//				opAdd: // SW[3:2] = 00
+//				begin
+//					
+//				end
+//				
+//				opSub: // SW[3:2] = 01
+//				begin
+//					
+//				end
+//				
+//				opMul: // SW[3:2] = 10
+//				begin
+//					
+//				end
+//				
+//				opDiv: // SW[3:2] = 11
+//				begin
+//					
+//				end
+//			endcase
+//			resultNum = result + 1;
+//		end
+//	end
 endmodule

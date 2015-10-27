@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="fourFuncCalc_top">
-		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_a2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_9am.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_c2m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

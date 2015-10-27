@@ -1,0 +1,64 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Philip David\Documents\School\EE 371\lab2\fourFuncCalc
+vfourFuncCalc_stated
+Z1 I99?GQB41n`O5oj:h84?bH0
+Z2 V9ALYQDUVkiNbMkZ`3mCT90
+Z3 dU:\EE 371\lab2\fourFuncCalc
+Z4 w1445975410
+Z5 8./fourFuncCalc_stated.v
+Z6 F./fourFuncCalc_stated.v
+L0 14
+Z7 OV;L;10.1e;51
+r1
+31
+Z8 !s108 1445975456.333000
+Z9 !s107 ./fourFuncCalc_stated.v|
+Z10 !s90 -reportprogress|300|./fourFuncCalc_stated.v|
+o-O0
+Z11 nfour@func@calc_stated
+!i10b 1
+Z12 !s100 TAAL0i8B67ZnAQ1Rz8?]Z3
+!s85 0
+!s101 -O0
+vfourFuncCalc_stated_testbench
+Z13 IgYzDem;X`PU@6WYeAGO]K1
+Z14 VHVhh4;XEBH[Td1Og[WNQ@0
+R3
+R4
+R5
+R6
+Z15 L0 299
+R7
+r1
+31
+R8
+R9
+R10
+o-O0
+Z16 nfour@func@calc_stated_testbench
+!i10b 1
+Z17 !s100 ZTL19>@7J9j8PGQ7_V`>k2
+!s85 0
+!s101 -O0
+vsram256x8
+!i10b 1
+Z18 !s100 S?T>R1dfT=E1[O9JSW?f33
+Z19 IIDN?E;g<Y4DD4QR<EUJCJ3
+Z20 Ve]X1^P69I63QBV?N=I2c22
+R3
+Z21 w1445929598
+Z22 8./sram256x8.v
+Z23 F./sram256x8.v
+L0 17
+R7
+r1
+!s85 0
+31
+!s108 1445975458.142000
+!s107 ./sram256x8.v|
+Z24 !s90 -reportprogress|300|./sram256x8.v|
+!s101 -O0
+o-O0

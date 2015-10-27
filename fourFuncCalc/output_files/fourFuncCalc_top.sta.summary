@@ -1,0 +1,245 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'slowClock:clock3Hz|outClock'
+Slack : -13.700
+TNS   : -578.486
+
+Type  : Slow 1100mV 85C Model Setup 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -11.036
+TNS   : -18471.442
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.560
+TNS   : -22.302
+
+Type  : Slow 1100mV 85C Model Setup 'slowClock:clock3Hz|tBase[19]'
+Slack : -1.206
+TNS   : -1.206
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.442
+TNS   : -0.442
+
+Type  : Slow 1100mV 85C Model Hold 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.420
+TNS   : -11.749
+
+Type  : Slow 1100mV 85C Model Hold 'slowClock:clock3Hz|outClock'
+Slack : 0.199
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'slowClock:clock3Hz|tBase[19]'
+Slack : 0.240
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'slowClock:clock3Hz|outClock'
+Slack : -3.674
+TNS   : -43.776
+
+Type  : Slow 1100mV 85C Model Removal 'slowClock:clock3Hz|outClock'
+Slack : 1.327
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.727
+TNS   : -303.655
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.691
+TNS   : -13.789
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'slowClock:clock3Hz|outClock'
+Slack : -0.440
+TNS   : -56.122
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'slowClock:clock3Hz|tBase[19]'
+Slack : -0.394
+TNS   : -0.643
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.233
+TNS   : -1.623
+
+Type  : Slow 1100mV 0C Model Setup 'slowClock:clock3Hz|outClock'
+Slack : -13.912
+TNS   : -570.474
+
+Type  : Slow 1100mV 0C Model Setup 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -10.738
+TNS   : -18074.963
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.778
+TNS   : -23.642
+
+Type  : Slow 1100mV 0C Model Setup 'slowClock:clock3Hz|tBase[19]'
+Slack : -1.257
+TNS   : -1.257
+
+Type  : Slow 1100mV 0C Model Hold 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.522
+TNS   : -28.976
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.454
+TNS   : -0.454
+
+Type  : Slow 1100mV 0C Model Hold 'slowClock:clock3Hz|outClock'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'slowClock:clock3Hz|tBase[19]'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'slowClock:clock3Hz|outClock'
+Slack : -3.613
+TNS   : -43.027
+
+Type  : Slow 1100mV 0C Model Removal 'slowClock:clock3Hz|outClock'
+Slack : 1.324
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.707
+TNS   : -12.666
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.674
+TNS   : -244.498
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'slowClock:clock3Hz|outClock'
+Slack : -0.417
+TNS   : -54.726
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'slowClock:clock3Hz|tBase[19]'
+Slack : -0.394
+TNS   : -0.640
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.243
+TNS   : -1.660
+
+Type  : Fast 1100mV 85C Model Setup 'slowClock:clock3Hz|outClock'
+Slack : -7.538
+TNS   : -353.170
+
+Type  : Fast 1100mV 85C Model Setup 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -7.030
+TNS   : -11295.900
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -1.952
+TNS   : -5.417
+
+Type  : Fast 1100mV 85C Model Setup 'slowClock:clock3Hz|tBase[19]'
+Slack : -0.687
+TNS   : -0.687
+
+Type  : Fast 1100mV 85C Model Hold 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.654
+TNS   : -97.872
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.046
+TNS   : -0.046
+
+Type  : Fast 1100mV 85C Model Hold 'slowClock:clock3Hz|outClock'
+Slack : 0.015
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'slowClock:clock3Hz|tBase[19]'
+Slack : 0.057
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'slowClock:clock3Hz|outClock'
+Slack : -2.414
+TNS   : -29.389
+
+Type  : Fast 1100mV 85C Model Removal 'slowClock:clock3Hz|outClock'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.743
+TNS   : -9.969
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.543
+TNS   : -224.646
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.479
+TNS   : -3.831
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'slowClock:clock3Hz|outClock'
+Slack : -0.190
+TNS   : -4.750
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'slowClock:clock3Hz|tBase[19]'
+Slack : -0.015
+TNS   : -0.015
+
+Type  : Fast 1100mV 0C Model Setup 'slowClock:clock3Hz|outClock'
+Slack : -6.838
+TNS   : -324.043
+
+Type  : Fast 1100mV 0C Model Setup 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -6.192
+TNS   : -10000.665
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -1.675
+TNS   : -4.713
+
+Type  : Fast 1100mV 0C Model Setup 'slowClock:clock3Hz|tBase[19]'
+Slack : -0.637
+TNS   : -0.637
+
+Type  : Fast 1100mV 0C Model Hold 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.581
+TNS   : -89.460
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.137
+TNS   : -0.137
+
+Type  : Fast 1100mV 0C Model Hold 'slowClock:clock3Hz|outClock'
+Slack : 0.018
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'slowClock:clock3Hz|tBase[19]'
+Slack : 0.036
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'slowClock:clock3Hz|outClock'
+Slack : -2.342
+TNS   : -28.677
+
+Type  : Fast 1100mV 0C Model Removal 'slowClock:clock3Hz|outClock'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.768
+TNS   : -11.812
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[0]'
+Slack : -0.502
+TNS   : -4.087
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'fourFuncCalc_stated:ffc|sramAddress[0]'
+Slack : -0.353
+TNS   : -75.208
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'slowClock:clock3Hz|outClock'
+Slack : -0.113
+TNS   : -2.266
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'slowClock:clock3Hz|tBase[19]'
+Slack : 0.020
+TNS   : 0.000
+
+------------------------------------------------------------

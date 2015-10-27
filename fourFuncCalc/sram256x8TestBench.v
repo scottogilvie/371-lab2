@@ -12,6 +12,7 @@
 // Authors: Scott Ogilvie
 // Date:
 
+//`include "sram256x8.v"
 module testBench;
     //  connect the two modules
     wire [7:0] data;

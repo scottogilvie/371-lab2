@@ -1,0 +1,13 @@
+module slowClock(outClock, inClock);
+	input inClock;
+	output reg outClock;
+	reg[25:0] tBase;
+	
+	always@(posedge inClock) begin
+		tBase <= tBase + 1'b1;
+	end
+	
+	always@(posedge tBase[24]) begin
+		outClock <= ~outClock;
+	end
+endmodule

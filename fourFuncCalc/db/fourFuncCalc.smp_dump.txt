@@ -1,0 +1,16 @@
+
+State Machine - |fourFuncCalc_top|fourFuncCalc_stated:ffc|nextState
+Name nextState.DISPLAY~0 nextState.COMPUTE_DONE~0 nextState.COMPUTE_STROBEHI~0 nextState.COMPUTE_WRITE~0 nextState.COMPUTE_RESULT~0 nextState.COMPUTE_LOAD2~0 nextState.COMPUTE_LOAD1~0 nextState.COMPUTE_RUN~0 nextState.START_DONE~0 nextState.START_STROBEHI~0 nextState.START_STROBELO~0 nextState.START_RUN~0 nextState.IDLE~0 
+nextState.IDLE~0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+nextState.START_RUN~0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+nextState.START_STROBELO~0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+nextState.START_STROBEHI~0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+nextState.START_DONE~0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+nextState.COMPUTE_RUN~0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+nextState.COMPUTE_LOAD1~0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+nextState.COMPUTE_LOAD2~0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+nextState.COMPUTE_RESULT~0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+nextState.COMPUTE_WRITE~0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+nextState.COMPUTE_STROBEHI~0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+nextState.COMPUTE_DONE~0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+nextState.DISPLAY~0 1 0 0 0 0 0 0 0 0 0 0 0 1 
