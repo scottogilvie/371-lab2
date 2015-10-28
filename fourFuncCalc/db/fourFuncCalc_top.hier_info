@@ -1,4 +1,104 @@
-|fourFuncCalc_stated
+|fourFuncCalc_top
+CLOCK_50 => CLOCK_50.IN1
+LEDR[0] << fourFuncCalc_stated:ffc.port0
+LEDR[1] << fourFuncCalc_stated:ffc.port0
+LEDR[2] << fourFuncCalc_stated:ffc.port0
+LEDR[3] << fourFuncCalc_stated:ffc.port0
+LEDR[4] << fourFuncCalc_stated:ffc.port0
+LEDR[5] << fourFuncCalc_stated:ffc.port0
+LEDR[6] << fourFuncCalc_stated:ffc.port0
+LEDR[7] << fourFuncCalc_stated:ffc.port0
+LEDR[8] << fourFuncCalc_stated:ffc.port0
+LEDR[9] << fourFuncCalc_stated:ffc.port0
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
+SW[9] => SW[9].IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+KEY[2] => KEY[2].IN1
+KEY[3] => KEY[3].IN2
+HEX0[0] << fourFuncCalc_stated:ffc.port1
+HEX0[1] << fourFuncCalc_stated:ffc.port1
+HEX0[2] << fourFuncCalc_stated:ffc.port1
+HEX0[3] << fourFuncCalc_stated:ffc.port1
+HEX0[4] << fourFuncCalc_stated:ffc.port1
+HEX0[5] << fourFuncCalc_stated:ffc.port1
+HEX0[6] << fourFuncCalc_stated:ffc.port1
+HEX1[0] << fourFuncCalc_stated:ffc.port2
+HEX1[1] << fourFuncCalc_stated:ffc.port2
+HEX1[2] << fourFuncCalc_stated:ffc.port2
+HEX1[3] << fourFuncCalc_stated:ffc.port2
+HEX1[4] << fourFuncCalc_stated:ffc.port2
+HEX1[5] << fourFuncCalc_stated:ffc.port2
+HEX1[6] << fourFuncCalc_stated:ffc.port2
+HEX2[0] << fourFuncCalc_stated:ffc.port3
+HEX2[1] << fourFuncCalc_stated:ffc.port3
+HEX2[2] << fourFuncCalc_stated:ffc.port3
+HEX2[3] << fourFuncCalc_stated:ffc.port3
+HEX2[4] << fourFuncCalc_stated:ffc.port3
+HEX2[5] << fourFuncCalc_stated:ffc.port3
+HEX2[6] << fourFuncCalc_stated:ffc.port3
+HEX3[0] << fourFuncCalc_stated:ffc.port4
+HEX3[1] << fourFuncCalc_stated:ffc.port4
+HEX3[2] << fourFuncCalc_stated:ffc.port4
+HEX3[3] << fourFuncCalc_stated:ffc.port4
+HEX3[4] << fourFuncCalc_stated:ffc.port4
+HEX3[5] << fourFuncCalc_stated:ffc.port4
+HEX3[6] << fourFuncCalc_stated:ffc.port4
+HEX4[0] << fourFuncCalc_stated:ffc.port5
+HEX4[1] << fourFuncCalc_stated:ffc.port5
+HEX4[2] << fourFuncCalc_stated:ffc.port5
+HEX4[3] << fourFuncCalc_stated:ffc.port5
+HEX4[4] << fourFuncCalc_stated:ffc.port5
+HEX4[5] << fourFuncCalc_stated:ffc.port5
+HEX4[6] << fourFuncCalc_stated:ffc.port5
+HEX5[0] << fourFuncCalc_stated:ffc.port6
+HEX5[1] << fourFuncCalc_stated:ffc.port6
+HEX5[2] << fourFuncCalc_stated:ffc.port6
+HEX5[3] << fourFuncCalc_stated:ffc.port6
+HEX5[4] << fourFuncCalc_stated:ffc.port6
+HEX5[5] << fourFuncCalc_stated:ffc.port6
+HEX5[6] << fourFuncCalc_stated:ffc.port6
+
+
+|fourFuncCalc_top|slowClock:clock3Hz
+outClock <= outClock~reg0.DB_MAX_OUTPUT_PORT_TYPE
+inClock => tBase[0].CLK
+inClock => tBase[1].CLK
+inClock => tBase[2].CLK
+inClock => tBase[3].CLK
+inClock => tBase[4].CLK
+inClock => tBase[5].CLK
+inClock => tBase[6].CLK
+inClock => tBase[7].CLK
+inClock => tBase[8].CLK
+inClock => tBase[9].CLK
+inClock => tBase[10].CLK
+inClock => tBase[11].CLK
+inClock => tBase[12].CLK
+inClock => tBase[13].CLK
+inClock => tBase[14].CLK
+inClock => tBase[15].CLK
+inClock => tBase[16].CLK
+inClock => tBase[17].CLK
+inClock => tBase[18].CLK
+inClock => tBase[19].CLK
+inClock => tBase[20].CLK
+inClock => tBase[21].CLK
+inClock => tBase[22].CLK
+inClock => tBase[23].CLK
+inClock => tBase[24].CLK
+inClock => tBase[25].CLK
+
+
+|fourFuncCalc_top|fourFuncCalc_stated:ffc
 ledr[0] <= ledr[0].DB_MAX_OUTPUT_PORT_TYPE
 ledr[1] <= ledr[1].DB_MAX_OUTPUT_PORT_TYPE
 ledr[2] <= ledr[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -51,12 +151,42 @@ hex5[3] <= seg7Control:seg7.port5
 hex5[4] <= seg7Control:seg7.port5
 hex5[5] <= seg7Control:seg7.port5
 hex5[6] <= seg7Control:seg7.port5
+clk => sramlData[0].CLK
+clk => sramlData[1].CLK
+clk => sramlData[2].CLK
+clk => sramlData[3].CLK
+clk => sramlData[4].CLK
+clk => sramlData[5].CLK
+clk => sramlData[6].CLK
+clk => sramlData[7].CLK
 clk => displayIndex[0].CLK
 clk => displayIndex[1].CLK
 clk => displayIndex[2].CLK
 clk => displayIndex[3].CLK
 clk => displayIndex[4].CLK
 clk => displayIndex[5].CLK
+clk => computeIndex[0].CLK
+clk => computeIndex[1].CLK
+clk => computeIndex[2].CLK
+clk => computeIndex[3].CLK
+clk => computeIndex[4].CLK
+clk => computeIndex[5].CLK
+clk => computeIndex[6].CLK
+clk => startIndex[0].CLK
+clk => startIndex[1].CLK
+clk => startIndex[2].CLK
+clk => startIndex[3].CLK
+clk => startIndex[4].CLK
+clk => startIndex[5].CLK
+clk => startIndex[6].CLK
+clk => displayReg[0].CLK
+clk => displayReg[1].CLK
+clk => displayReg[2].CLK
+clk => displayReg[3].CLK
+clk => displayReg[4].CLK
+clk => displayReg[5].CLK
+clk => displayReg[6].CLK
+clk => displayReg[7].CLK
 clk => remainderReg[0].CLK
 clk => remainderReg[1].CLK
 clk => remainderReg[2].CLK
@@ -85,21 +215,6 @@ clk => computeReg1[4].CLK
 clk => computeReg1[5].CLK
 clk => computeReg1[6].CLK
 clk => computeReg1[7].CLK
-clk => computeIndex[0].CLK
-clk => computeIndex[1].CLK
-clk => computeIndex[2].CLK
-clk => computeIndex[3].CLK
-clk => computeIndex[4].CLK
-clk => computeIndex[5].CLK
-clk => computeIndex[6].CLK
-clk => sramlData[0].CLK
-clk => sramlData[1].CLK
-clk => sramlData[2].CLK
-clk => sramlData[3].CLK
-clk => sramlData[4].CLK
-clk => sramlData[5].CLK
-clk => sramlData[6].CLK
-clk => sramlData[7].CLK
 clk => sramAddress[0].CLK
 clk => sramAddress[1].CLK
 clk => sramAddress[2].CLK
@@ -111,21 +226,6 @@ clk => sramAddress[7].CLK
 clk => sramNWe.CLK
 clk => sramNOe.CLK
 clk => sramNCs.CLK
-clk => startIndex[0].CLK
-clk => startIndex[1].CLK
-clk => startIndex[2].CLK
-clk => startIndex[3].CLK
-clk => startIndex[4].CLK
-clk => startIndex[5].CLK
-clk => startIndex[6].CLK
-clk => displayReg[0].CLK
-clk => displayReg[1].CLK
-clk => displayReg[2].CLK
-clk => displayReg[3].CLK
-clk => displayReg[4].CLK
-clk => displayReg[5].CLK
-clk => displayReg[6].CLK
-clk => displayReg[7].CLK
 clk => nextState.DISPLAY_READ.CLK
 clk => nextState.DISPLAY.CLK
 clk => nextState.COMPUTE_DONE.CLK
@@ -144,8 +244,8 @@ clk => nextState.START_STROBEHI.CLK
 clk => nextState.START_STROBELO.CLK
 clk => nextState.START_RUN.CLK
 clk => nextState.IDLE.CLK
-sw[0] => Decoder0.IN1
-sw[1] => Decoder0.IN0
+sw[0] => sw[0].IN1
+sw[1] => sw[1].IN1
 sw[2] => Mux0.IN5
 sw[2] => Mux1.IN5
 sw[2] => Mux2.IN5
@@ -164,12 +264,20 @@ sw[3] => Mux5.IN4
 sw[3] => Mux6.IN4
 sw[3] => Mux7.IN4
 sw[3] => Decoder1.IN0
-sw[4] => ~NO_FANOUT~
+sw[4] => sw[4].IN1
 sw[5] => ~NO_FANOUT~
 sw[6] => ~NO_FANOUT~
 sw[7] => ~NO_FANOUT~
 sw[8] => ~NO_FANOUT~
 sw[9] => ~NO_FANOUT~
+key[0] => displayReg[0].OUTPUTSELECT
+key[0] => displayReg[1].OUTPUTSELECT
+key[0] => displayReg[2].OUTPUTSELECT
+key[0] => displayReg[3].OUTPUTSELECT
+key[0] => displayReg[4].OUTPUTSELECT
+key[0] => displayReg[5].OUTPUTSELECT
+key[0] => displayReg[6].OUTPUTSELECT
+key[0] => displayReg[7].OUTPUTSELECT
 key[0] => sramAddress[0].OUTPUTSELECT
 key[0] => sramAddress[1].OUTPUTSELECT
 key[0] => sramAddress[2].OUTPUTSELECT
@@ -181,14 +289,6 @@ key[0] => sramAddress[7].OUTPUTSELECT
 key[0] => sramNWe.OUTPUTSELECT
 key[0] => sramNOe.OUTPUTSELECT
 key[0] => sramNCs.OUTPUTSELECT
-key[0] => displayReg[0].OUTPUTSELECT
-key[0] => displayReg[1].OUTPUTSELECT
-key[0] => displayReg[2].OUTPUTSELECT
-key[0] => displayReg[3].OUTPUTSELECT
-key[0] => displayReg[4].OUTPUTSELECT
-key[0] => displayReg[5].OUTPUTSELECT
-key[0] => displayReg[6].OUTPUTSELECT
-key[0] => displayReg[7].OUTPUTSELECT
 key[0] => nextState.DISPLAY_READ.ACLR
 key[0] => nextState.DISPLAY.ALOAD
 key[0] => nextState.COMPUTE_DONE.ACLR
@@ -207,28 +307,6 @@ key[0] => nextState.START_STROBEHI.ACLR
 key[0] => nextState.START_STROBELO.ACLR
 key[0] => nextState.START_RUN.ALOAD
 key[0] => nextState.IDLE.ALOAD
-key[0] => startIndex[6].ENA
-key[0] => startIndex[5].ENA
-key[0] => startIndex[4].ENA
-key[0] => startIndex[3].ENA
-key[0] => startIndex[2].ENA
-key[0] => startIndex[1].ENA
-key[0] => startIndex[0].ENA
-key[0] => sramlData[7].ENA
-key[0] => sramlData[6].ENA
-key[0] => sramlData[5].ENA
-key[0] => sramlData[4].ENA
-key[0] => sramlData[3].ENA
-key[0] => sramlData[2].ENA
-key[0] => sramlData[1].ENA
-key[0] => sramlData[0].ENA
-key[0] => computeIndex[6].ENA
-key[0] => computeIndex[5].ENA
-key[0] => computeIndex[4].ENA
-key[0] => computeIndex[3].ENA
-key[0] => computeIndex[2].ENA
-key[0] => computeIndex[1].ENA
-key[0] => computeIndex[0].ENA
 key[0] => computeReg1[7].ENA
 key[0] => computeReg1[6].ENA
 key[0] => computeReg1[5].ENA
@@ -252,24 +330,46 @@ key[0] => resultReg[4].ENA
 key[0] => resultReg[3].ENA
 key[0] => resultReg[2].ENA
 key[0] => resultReg[1].ENA
-key[0] => displayIndex[0].ENA
+key[0] => sramlData[0].ENA
 key[0] => resultReg[0].ENA
 key[0] => remainderReg[3].ENA
 key[0] => remainderReg[2].ENA
 key[0] => remainderReg[1].ENA
 key[0] => remainderReg[0].ENA
+key[0] => startIndex[6].ENA
+key[0] => startIndex[5].ENA
+key[0] => startIndex[4].ENA
+key[0] => startIndex[3].ENA
+key[0] => startIndex[2].ENA
+key[0] => startIndex[1].ENA
+key[0] => startIndex[0].ENA
+key[0] => computeIndex[6].ENA
+key[0] => computeIndex[5].ENA
+key[0] => computeIndex[4].ENA
+key[0] => computeIndex[3].ENA
+key[0] => computeIndex[2].ENA
+key[0] => computeIndex[1].ENA
+key[0] => computeIndex[0].ENA
 key[0] => displayIndex[5].ENA
 key[0] => displayIndex[4].ENA
 key[0] => displayIndex[3].ENA
 key[0] => displayIndex[2].ENA
 key[0] => displayIndex[1].ENA
+key[0] => displayIndex[0].ENA
+key[0] => sramlData[7].ENA
+key[0] => sramlData[6].ENA
+key[0] => sramlData[5].ENA
+key[0] => sramlData[4].ENA
+key[0] => sramlData[3].ENA
+key[0] => sramlData[2].ENA
+key[0] => sramlData[1].ENA
 key[1] => ~NO_FANOUT~
 key[2] => ~NO_FANOUT~
 key[3] => ~NO_FANOUT~
 rst => ~NO_FANOUT~
 
 
-|fourFuncCalc_stated|sram256x8:sram
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|sram256x8:sram
 data[0] <> data[0]
 data[1] <> data[1]
 data[2] <> data[2]
@@ -278,28 +378,55 @@ data[4] <> data[4]
 data[5] <> data[5]
 data[6] <> data[6]
 data[7] <> data[7]
+add[0] => mem.waddr_a[0].DATAIN
 add[0] => mem.WADDR
 add[0] => mem.RADDR
+add[1] => mem.waddr_a[1].DATAIN
 add[1] => mem.WADDR1
 add[1] => mem.RADDR1
+add[2] => mem.waddr_a[2].DATAIN
 add[2] => mem.WADDR2
 add[2] => mem.RADDR2
+add[3] => mem.waddr_a[3].DATAIN
 add[3] => mem.WADDR3
 add[3] => mem.RADDR3
+add[4] => mem.waddr_a[4].DATAIN
 add[4] => mem.WADDR4
 add[4] => mem.RADDR4
+add[5] => mem.waddr_a[5].DATAIN
 add[5] => mem.WADDR5
 add[5] => mem.RADDR5
+add[6] => mem.waddr_a[6].DATAIN
 add[6] => mem.WADDR6
 add[6] => mem.RADDR6
+add[7] => mem.waddr_a[7].DATAIN
 add[7] => mem.WADDR7
 add[7] => mem.RADDR7
 nCs => data.IN0
+nCs => mem.we_a.DATAIN
+nCs => mem.WE
 nOe => data.IN1
-nWe => ~NO_FANOUT~
+nWe => mem.we_a.CLK
+nWe => mem.waddr_a[7].CLK
+nWe => mem.waddr_a[6].CLK
+nWe => mem.waddr_a[5].CLK
+nWe => mem.waddr_a[4].CLK
+nWe => mem.waddr_a[3].CLK
+nWe => mem.waddr_a[2].CLK
+nWe => mem.waddr_a[1].CLK
+nWe => mem.waddr_a[0].CLK
+nWe => mem.data_a[7].CLK
+nWe => mem.data_a[6].CLK
+nWe => mem.data_a[5].CLK
+nWe => mem.data_a[4].CLK
+nWe => mem.data_a[3].CLK
+nWe => mem.data_a[2].CLK
+nWe => mem.data_a[1].CLK
+nWe => mem.data_a[0].CLK
+nWe => mem.CLK0
 
 
-|fourFuncCalc_stated|seg7Control:seg7
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7
 ho0[0] <= seg7:s0.leds
 ho0[1] <= seg7:s0.leds
 ho0[2] <= seg7:s0.leds
@@ -366,9 +493,27 @@ in[6] => Mod5.IN11
 in[7] => Mod3.IN4
 in[7] => Mod4.IN7
 in[7] => Mod5.IN10
+en[0] => Equal0.IN2
+en[0] => Equal1.IN2
+en[0] => Equal2.IN2
+en[0] => Equal3.IN2
+en[0] => Equal4.IN2
+en[0] => Equal5.IN2
+en[1] => Equal0.IN1
+en[1] => Equal1.IN1
+en[1] => Equal2.IN1
+en[1] => Equal3.IN1
+en[1] => Equal4.IN1
+en[1] => Equal5.IN1
+en[2] => Equal0.IN0
+en[2] => Equal1.IN0
+en[2] => Equal2.IN0
+en[2] => Equal3.IN0
+en[2] => Equal4.IN0
+en[2] => Equal5.IN0
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s0
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s0
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -377,16 +522,16 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s1
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s1
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -395,16 +540,16 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s2
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s2
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -413,16 +558,16 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s3
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s3
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -431,16 +576,16 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s4
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s4
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -449,16 +594,16 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fourFuncCalc_stated|seg7Control:seg7|seg7:s5
+|fourFuncCalc_top|fourFuncCalc_stated:ffc|seg7Control:seg7|seg7:s5
 bcd[0] => Decoder0.IN7
 bcd[1] => Decoder0.IN6
 bcd[2] => Decoder0.IN5
@@ -467,12 +612,12 @@ bcd[4] => Decoder0.IN3
 bcd[5] => Decoder0.IN2
 bcd[6] => Decoder0.IN1
 bcd[7] => Decoder0.IN0
-leds[0] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[1] <= leds.DB_MAX_OUTPUT_PORT_TYPE
-leds[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-leds[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-leds[4] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-leds[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-leds[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 

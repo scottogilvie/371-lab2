@@ -39,14 +39,13 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY fourFuncCalc_stated
+set_global_assignment -name TOP_LEVEL_ENTITY fourFuncCalc_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:07:47  OCTOBER 23, 2015"
 set_global_assignment -name LAST_QUARTUS_VERSION 14.0
 set_global_assignment -name VERILOG_FILE sram256x8TestBench.v
 set_global_assignment -name VERILOG_FILE sram256x8.v
 set_global_assignment -name VERILOG_FILE fourFuncCalc_top.v
-set_global_assignment -name VERILOG_FILE fourFuncCalc.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -124,6 +123,7 @@ set_location_assignment PIN_AB12 -to SW[0]
 set_global_assignment -name VERILOG_FILE slowClock.v
 set_global_assignment -name VERILOG_FILE fourFuncCalc_testbench.v
 set_global_assignment -name VERILOG_FILE fourFuncCalc_stated.v
+set_global_assignment -name SYSTEMVERILOG_FILE seg7Control.v
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to HEX0[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to HEX0[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to HEX0[4]
@@ -191,8 +191,409 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to SW[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to SW[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to SW[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to SW[0]
-set_global_assignment -name SYSTEMVERILOG_FILE seg7Control.v
+set_global_assignment -name CDF_FILE prog_fourFuncCalc.cdf
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE fourFuncCalc.stp
+set_global_assignment -name SIGNALTAP_FILE fourFuncCalc.stp
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "slowClock:clock3Hz|outClock" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to CLOCK_50 -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to KEY[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to KEY[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to KEY[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to KEY[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to LEDR[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to LEDR[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to LEDR[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to LEDR[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to LEDR[4] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to LEDR[5] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to LEDR[6] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to LEDR[7] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to LEDR[8] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to LEDR[9] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to SW[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to SW[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to SW[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to SW[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to SW[4] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to SW[5] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to SW[6] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to SW[7] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to SW[8] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to SW[9] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "fourFuncCalc_stated:ffc|computeIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "fourFuncCalc_stated:ffc|computeIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "fourFuncCalc_stated:ffc|computeIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "fourFuncCalc_stated:ffc|computeIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "fourFuncCalc_stated:ffc|computeIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "fourFuncCalc_stated:ffc|computeIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "fourFuncCalc_stated:ffc|computeIndex[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "fourFuncCalc_stated:ffc|computeReg1[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "fourFuncCalc_stated:ffc|computeReg1[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "fourFuncCalc_stated:ffc|computeReg1[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "fourFuncCalc_stated:ffc|computeReg1[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "fourFuncCalc_stated:ffc|computeReg1[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "fourFuncCalc_stated:ffc|computeReg1[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "fourFuncCalc_stated:ffc|computeReg1[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "fourFuncCalc_stated:ffc|computeReg1[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "fourFuncCalc_stated:ffc|computeReg2[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "fourFuncCalc_stated:ffc|computeReg2[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "fourFuncCalc_stated:ffc|computeReg2[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "fourFuncCalc_stated:ffc|computeReg2[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "fourFuncCalc_stated:ffc|computeReg2[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "fourFuncCalc_stated:ffc|computeReg2[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "fourFuncCalc_stated:ffc|computeReg2[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "fourFuncCalc_stated:ffc|computeReg2[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "fourFuncCalc_stated:ffc|displayIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "fourFuncCalc_stated:ffc|displayIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "fourFuncCalc_stated:ffc|displayIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "fourFuncCalc_stated:ffc|displayIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "fourFuncCalc_stated:ffc|displayIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "fourFuncCalc_stated:ffc|displayIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "fourFuncCalc_stated:ffc|displayReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "fourFuncCalc_stated:ffc|displayReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "fourFuncCalc_stated:ffc|displayReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "fourFuncCalc_stated:ffc|displayReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "fourFuncCalc_stated:ffc|displayReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "fourFuncCalc_stated:ffc|displayReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "fourFuncCalc_stated:ffc|displayReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "fourFuncCalc_stated:ffc|displayReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "fourFuncCalc_stated:ffc|key[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "fourFuncCalc_stated:ffc|key[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[64] -to "fourFuncCalc_stated:ffc|key[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[65] -to "fourFuncCalc_stated:ffc|key[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[66] -to "fourFuncCalc_stated:ffc|ledr[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[67] -to "fourFuncCalc_stated:ffc|ledr[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[68] -to "fourFuncCalc_stated:ffc|ledr[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[69] -to "fourFuncCalc_stated:ffc|ledr[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[70] -to "fourFuncCalc_stated:ffc|ledr[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[71] -to "fourFuncCalc_stated:ffc|ledr[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[72] -to "fourFuncCalc_stated:ffc|ledr[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[73] -to "fourFuncCalc_stated:ffc|ledr[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[74] -to "fourFuncCalc_stated:ffc|ledr[8]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[75] -to "fourFuncCalc_stated:ffc|ledr[9]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to CLOCK_50 -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to KEY[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to KEY[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to KEY[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to KEY[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to LEDR[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to LEDR[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to LEDR[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to LEDR[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to LEDR[4] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to LEDR[5] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to LEDR[6] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to LEDR[7] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to LEDR[8] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to LEDR[9] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to SW[0] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to SW[1] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to SW[2] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to SW[3] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to SW[4] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to SW[5] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to SW[6] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to SW[7] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to SW[8] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to SW[9] -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "fourFuncCalc_stated:ffc|computeIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "fourFuncCalc_stated:ffc|computeIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "fourFuncCalc_stated:ffc|computeIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "fourFuncCalc_stated:ffc|computeIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "fourFuncCalc_stated:ffc|computeIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "fourFuncCalc_stated:ffc|computeIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "fourFuncCalc_stated:ffc|computeIndex[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "fourFuncCalc_stated:ffc|computeReg1[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "fourFuncCalc_stated:ffc|computeReg1[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "fourFuncCalc_stated:ffc|computeReg1[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "fourFuncCalc_stated:ffc|computeReg1[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "fourFuncCalc_stated:ffc|computeReg1[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "fourFuncCalc_stated:ffc|computeReg1[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "fourFuncCalc_stated:ffc|computeReg1[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "fourFuncCalc_stated:ffc|computeReg1[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "fourFuncCalc_stated:ffc|computeReg2[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "fourFuncCalc_stated:ffc|computeReg2[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "fourFuncCalc_stated:ffc|computeReg2[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "fourFuncCalc_stated:ffc|computeReg2[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "fourFuncCalc_stated:ffc|computeReg2[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "fourFuncCalc_stated:ffc|computeReg2[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "fourFuncCalc_stated:ffc|computeReg2[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "fourFuncCalc_stated:ffc|computeReg2[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "fourFuncCalc_stated:ffc|displayIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "fourFuncCalc_stated:ffc|displayIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "fourFuncCalc_stated:ffc|displayIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "fourFuncCalc_stated:ffc|displayIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "fourFuncCalc_stated:ffc|displayIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "fourFuncCalc_stated:ffc|displayIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "fourFuncCalc_stated:ffc|displayReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "fourFuncCalc_stated:ffc|displayReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to "fourFuncCalc_stated:ffc|displayReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[57] -to "fourFuncCalc_stated:ffc|displayReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[58] -to "fourFuncCalc_stated:ffc|displayReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[59] -to "fourFuncCalc_stated:ffc|displayReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[60] -to "fourFuncCalc_stated:ffc|displayReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[61] -to "fourFuncCalc_stated:ffc|displayReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[62] -to "fourFuncCalc_stated:ffc|key[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[63] -to "fourFuncCalc_stated:ffc|key[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -to "fourFuncCalc_stated:ffc|key[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to "fourFuncCalc_stated:ffc|key[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[66] -to "fourFuncCalc_stated:ffc|ledr[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[67] -to "fourFuncCalc_stated:ffc|ledr[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[68] -to "fourFuncCalc_stated:ffc|ledr[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[69] -to "fourFuncCalc_stated:ffc|ledr[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[70] -to "fourFuncCalc_stated:ffc|ledr[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[71] -to "fourFuncCalc_stated:ffc|ledr[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[72] -to "fourFuncCalc_stated:ffc|ledr[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[73] -to "fourFuncCalc_stated:ffc|ledr[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[74] -to "fourFuncCalc_stated:ffc|ledr[8]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[75] -to "fourFuncCalc_stated:ffc|ledr[9]" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_BLOCK_TYPE=AUTO" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INCREMENTAL_ROUTING=1" -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[3] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[6] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[15] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[18] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[21] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[26] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[30] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=512" -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[0] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[9] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[20] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[22] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[23] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=512" -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[2] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[76] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_DONE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[77] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD1" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[78] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD1_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[79] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD2" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[80] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD2_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[81] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RESULT" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[82] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RESULT_LOAD" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[83] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RUN" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[84] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_STROBEHI" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[85] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_STROBELO" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[86] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_WRITE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[87] -to "fourFuncCalc_stated:ffc|nextState.DISPLAY" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[88] -to "fourFuncCalc_stated:ffc|nextState.DISPLAY_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[89] -to "fourFuncCalc_stated:ffc|nextState.IDLE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[90] -to "fourFuncCalc_stated:ffc|nextState.START_DONE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[91] -to "fourFuncCalc_stated:ffc|nextState.START_RUN" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[92] -to "fourFuncCalc_stated:ffc|nextState.START_STROBEHI" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[93] -to "fourFuncCalc_stated:ffc|nextState.START_STROBELO" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[94] -to "fourFuncCalc_stated:ffc|remainderReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[95] -to "fourFuncCalc_stated:ffc|remainderReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[96] -to "fourFuncCalc_stated:ffc|remainderReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[97] -to "fourFuncCalc_stated:ffc|remainderReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[98] -to "fourFuncCalc_stated:ffc|remainderReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[99] -to "fourFuncCalc_stated:ffc|remainderReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[100] -to "fourFuncCalc_stated:ffc|remainderReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[101] -to "fourFuncCalc_stated:ffc|remainderReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[102] -to "fourFuncCalc_stated:ffc|resultReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[103] -to "fourFuncCalc_stated:ffc|resultReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[104] -to "fourFuncCalc_stated:ffc|resultReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[105] -to "fourFuncCalc_stated:ffc|resultReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[106] -to "fourFuncCalc_stated:ffc|resultReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[107] -to "fourFuncCalc_stated:ffc|resultReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[108] -to "fourFuncCalc_stated:ffc|resultReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[109] -to "fourFuncCalc_stated:ffc|resultReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[110] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[111] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[112] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[113] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[114] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[115] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[116] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[117] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[118] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[119] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[120] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[121] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[122] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[123] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[124] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[125] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[126] -to "fourFuncCalc_stated:ffc|sramAddress[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[127] -to "fourFuncCalc_stated:ffc|sramAddress[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[128] -to "fourFuncCalc_stated:ffc|sramAddress[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[129] -to "fourFuncCalc_stated:ffc|sramAddress[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[130] -to "fourFuncCalc_stated:ffc|sramAddress[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[131] -to "fourFuncCalc_stated:ffc|sramAddress[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[132] -to "fourFuncCalc_stated:ffc|sramAddress[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[133] -to "fourFuncCalc_stated:ffc|sramAddress[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[134] -to "fourFuncCalc_stated:ffc|sramData[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[135] -to "fourFuncCalc_stated:ffc|sramData[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[136] -to "fourFuncCalc_stated:ffc|sramData[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[137] -to "fourFuncCalc_stated:ffc|sramData[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[138] -to "fourFuncCalc_stated:ffc|sramData[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[139] -to "fourFuncCalc_stated:ffc|sramData[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[140] -to "fourFuncCalc_stated:ffc|sramData[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[141] -to "fourFuncCalc_stated:ffc|sramData[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[142] -to "fourFuncCalc_stated:ffc|sramNCs" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[143] -to "fourFuncCalc_stated:ffc|sramNOe" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[144] -to "fourFuncCalc_stated:ffc|sramNWe" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[145] -to "fourFuncCalc_stated:ffc|sramlData[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[146] -to "fourFuncCalc_stated:ffc|sramlData[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[147] -to "fourFuncCalc_stated:ffc|sramlData[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[148] -to "fourFuncCalc_stated:ffc|sramlData[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[149] -to "fourFuncCalc_stated:ffc|sramlData[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[150] -to "fourFuncCalc_stated:ffc|sramlData[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[151] -to "fourFuncCalc_stated:ffc|sramlData[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[152] -to "fourFuncCalc_stated:ffc|sramlData[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[153] -to "fourFuncCalc_stated:ffc|startIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[154] -to "fourFuncCalc_stated:ffc|startIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[155] -to "fourFuncCalc_stated:ffc|startIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[156] -to "fourFuncCalc_stated:ffc|startIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[157] -to "fourFuncCalc_stated:ffc|startIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[158] -to "fourFuncCalc_stated:ffc|startIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[159] -to "fourFuncCalc_stated:ffc|startIndex[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[160] -to "fourFuncCalc_stated:ffc|sw[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[161] -to "fourFuncCalc_stated:ffc|sw[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[162] -to "fourFuncCalc_stated:ffc|sw[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[163] -to "fourFuncCalc_stated:ffc|sw[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[164] -to "fourFuncCalc_stated:ffc|sw[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[165] -to "fourFuncCalc_stated:ffc|sw[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[166] -to "fourFuncCalc_stated:ffc|sw[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[167] -to "fourFuncCalc_stated:ffc|sw[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[168] -to "fourFuncCalc_stated:ffc|sw[8]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[169] -to "fourFuncCalc_stated:ffc|sw[9]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[76] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_DONE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[77] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD1" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[78] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD1_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[79] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD2" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[80] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_LOAD2_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[81] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RESULT" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[82] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RESULT_LOAD" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[83] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_RUN" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[84] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_STROBEHI" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[85] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_STROBELO" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[86] -to "fourFuncCalc_stated:ffc|nextState.COMPUTE_WRITE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[87] -to "fourFuncCalc_stated:ffc|nextState.DISPLAY" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[88] -to "fourFuncCalc_stated:ffc|nextState.DISPLAY_READ" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[89] -to "fourFuncCalc_stated:ffc|nextState.IDLE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[90] -to "fourFuncCalc_stated:ffc|nextState.START_DONE" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[91] -to "fourFuncCalc_stated:ffc|nextState.START_RUN" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[92] -to "fourFuncCalc_stated:ffc|nextState.START_STROBEHI" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[93] -to "fourFuncCalc_stated:ffc|nextState.START_STROBELO" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[94] -to "fourFuncCalc_stated:ffc|remainderReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[95] -to "fourFuncCalc_stated:ffc|remainderReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[96] -to "fourFuncCalc_stated:ffc|remainderReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[97] -to "fourFuncCalc_stated:ffc|remainderReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[98] -to "fourFuncCalc_stated:ffc|remainderReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[99] -to "fourFuncCalc_stated:ffc|remainderReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[100] -to "fourFuncCalc_stated:ffc|remainderReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[101] -to "fourFuncCalc_stated:ffc|remainderReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[102] -to "fourFuncCalc_stated:ffc|resultReg[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[103] -to "fourFuncCalc_stated:ffc|resultReg[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[104] -to "fourFuncCalc_stated:ffc|resultReg[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[105] -to "fourFuncCalc_stated:ffc|resultReg[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[106] -to "fourFuncCalc_stated:ffc|resultReg[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[107] -to "fourFuncCalc_stated:ffc|resultReg[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[108] -to "fourFuncCalc_stated:ffc|resultReg[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[109] -to "fourFuncCalc_stated:ffc|resultReg[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[110] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[111] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[112] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[113] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[114] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[115] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[116] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[117] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.data_a[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[118] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[119] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[120] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[121] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[122] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[123] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[124] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[125] -to "fourFuncCalc_stated:ffc|sram256x8:sram|mem.q_a[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[126] -to "fourFuncCalc_stated:ffc|sramAddress[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[127] -to "fourFuncCalc_stated:ffc|sramAddress[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[128] -to "fourFuncCalc_stated:ffc|sramAddress[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[129] -to "fourFuncCalc_stated:ffc|sramAddress[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[130] -to "fourFuncCalc_stated:ffc|sramAddress[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[131] -to "fourFuncCalc_stated:ffc|sramAddress[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[132] -to "fourFuncCalc_stated:ffc|sramAddress[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[133] -to "fourFuncCalc_stated:ffc|sramAddress[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[134] -to "fourFuncCalc_stated:ffc|sramData[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[135] -to "fourFuncCalc_stated:ffc|sramData[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[136] -to "fourFuncCalc_stated:ffc|sramData[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[137] -to "fourFuncCalc_stated:ffc|sramData[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[138] -to "fourFuncCalc_stated:ffc|sramData[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[139] -to "fourFuncCalc_stated:ffc|sramData[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[140] -to "fourFuncCalc_stated:ffc|sramData[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[141] -to "fourFuncCalc_stated:ffc|sramData[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[142] -to "fourFuncCalc_stated:ffc|sramNCs" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[143] -to "fourFuncCalc_stated:ffc|sramNOe" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[144] -to "fourFuncCalc_stated:ffc|sramNWe" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[145] -to "fourFuncCalc_stated:ffc|sramlData[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[146] -to "fourFuncCalc_stated:ffc|sramlData[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[147] -to "fourFuncCalc_stated:ffc|sramlData[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[148] -to "fourFuncCalc_stated:ffc|sramlData[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[149] -to "fourFuncCalc_stated:ffc|sramlData[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[150] -to "fourFuncCalc_stated:ffc|sramlData[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[151] -to "fourFuncCalc_stated:ffc|sramlData[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[152] -to "fourFuncCalc_stated:ffc|sramlData[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[153] -to "fourFuncCalc_stated:ffc|startIndex[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[154] -to "fourFuncCalc_stated:ffc|startIndex[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[155] -to "fourFuncCalc_stated:ffc|startIndex[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[156] -to "fourFuncCalc_stated:ffc|startIndex[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[157] -to "fourFuncCalc_stated:ffc|startIndex[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[158] -to "fourFuncCalc_stated:ffc|startIndex[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[159] -to "fourFuncCalc_stated:ffc|startIndex[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[160] -to "fourFuncCalc_stated:ffc|sw[0]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[161] -to "fourFuncCalc_stated:ffc|sw[1]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[162] -to "fourFuncCalc_stated:ffc|sw[2]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[163] -to "fourFuncCalc_stated:ffc|sw[3]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[164] -to "fourFuncCalc_stated:ffc|sw[4]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[165] -to "fourFuncCalc_stated:ffc|sw[5]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[166] -to "fourFuncCalc_stated:ffc|sw[6]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[167] -to "fourFuncCalc_stated:ffc|sw[7]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[168] -to "fourFuncCalc_stated:ffc|sw[8]" -section_id fourFuncCalc
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[169] -to "fourFuncCalc_stated:ffc|sw[9]" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=170" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=170" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=170" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id fourFuncCalc
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=533" -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[5] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -to fourFuncCalc|vcc -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to fourFuncCalc|gnd -section_id fourFuncCalc
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to fourFuncCalc|gnd -section_id fourFuncCalc
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SLD_FILE db/fourFuncCalc_auto_stripped.stp

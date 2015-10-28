@@ -13,22 +13,23 @@ Philip David
 */
 module seg7Control(
 	ho0, ho1, ho2, ho3, ho4, ho5,
-	in
+	in, en
 );
 
 	output [6:0] ho0, ho1, ho2, ho3, ho4, ho5;
 	input [7:0]	in;
+	input [2:0] en;
 	
-	wire [7:0] lsnResult0 = in[3:0] % 10;
-	wire [7:0] lsnResult1 = in[3:0] % 100 / 10;
-	wire [7:0] lsnResult2 = in[3:0] % 1000 / 100;
+	wire [7:0] lsnResult0 = (en == 3'b111) ? in[3:0] % 10 : 8'b11111111;
+	wire [7:0] lsnResult1 = (en == 3'b111) ? in[3:0] % 100 / 10 : 8'b11111111;
+	wire [7:0] lsnResult2 = (en == 3'b111) ? in[3:0] % 1000 / 100 : 8'b11111111;
 	seg7 s0 (.bcd(lsnResult0), .leds(ho0));
 	seg7 s1 (.bcd(lsnResult1), .leds(ho1));
 	seg7 s2 (.bcd(lsnResult2), .leds(ho2));
 	
-	wire [7:0] msnResult0 = in[7:4] % 10;
-	wire [7:0] msnResult1 = in[7:4] % 100 / 10;
-	wire [7:0] msnResult2 = in[7:4] % 1000 / 100;
+	wire [7:0] msnResult0 = (en == 3'b111) ? in[7:4] % 10 : 8'b11111111;
+	wire [7:0] msnResult1 = (en == 3'b111) ? in[7:4] % 100 / 10 : 8'b11111111;
+	wire [7:0] msnResult2 = (en == 3'b111) ? in[7:4] % 1000 / 100 : 8'b11111111;
 	seg7 s3 (.bcd(msnResult0), .leds(ho3));
 	seg7 s4 (.bcd(msnResult1), .leds(ho4));
 	seg7 s5 (.bcd(msnResult2), .leds(ho5));
@@ -52,7 +53,8 @@ module seg7 (bcd, leds);
 		 8'b00000111: leds = ~7'b0000111; // 7
 		 8'b00001000: leds = ~7'b1111111; // 8
 		 8'b00001001: leds = ~7'b1101111; // 9
-		 default: leds = 7'bX;
+		 8'b11111111: leds = ~7'b0000000;
+		 default: leds = 7'b0;
 	 endcase
 endmodule 
 

@@ -4,18 +4,18 @@ K3
 cModel Technology
 Z0 dC:\Users\Philip David\Documents\School\EE 371\lab2\fourFuncCalc
 vfourFuncCalc_stated
-Z1 !s100 NJBBR96NSo]A6l4H1MhI^2
-Z2 IUTJYD1l7;hg<lkaYfJalQ1
+Z1 !s100 ngn:j6iFZnjG]Q:2oFOER2
+Z2 IVilMb:D2XZg6NC7<]fJZ_2
 Z3 V9ALYQDUVkiNbMkZ`3mCT90
-Z4 dU:\EE 371\lab2\fourFuncCalc
-Z5 w1445979250
+Z4 dC:\Users\Philip David\Documents\School\EE 371\lab2\fourFuncCalc
+Z5 w1446014300
 Z6 8./fourFuncCalc_stated.v
 Z7 F./fourFuncCalc_stated.v
 L0 14
 Z8 OV;L;10.1e;51
 r1
 31
-Z9 !s108 1445979378.382000
+Z9 !s108 1446053995.706000
 Z10 !s107 ./fourFuncCalc_stated.v|
 Z11 !s90 -reportprogress|300|./fourFuncCalc_stated.v|
 o-O0
@@ -24,14 +24,14 @@ Z12 nfour@func@calc_stated
 !s85 0
 !s101 -O0
 vfourFuncCalc_stated_testbench
-Z13 !s100 jUi?I[`G00<;7QzmBR=]E1
-Z14 ISUf]H@ZCGb7_cgz3<@1HS0
+Z13 !s100 a7EMai_dL_omS^kf9hRB^0
+Z14 IiQ@][OGW7UO52QBU5LT6i1
 Z15 VHVhh4;XEBH[Td1Og[WNQ@0
 R4
 R5
 R6
 R7
-Z16 L0 301
+Z16 L0 353
 R8
 r1
 31
@@ -44,71 +44,71 @@ Z17 nfour@func@calc_stated_testbench
 !s85 0
 !s101 -O0
 vseg7
-Z18 IGEhDbSnFRA5Q@dG7?LKT91
-Z19 VL]nd9?C>8>oZQ72GFCz4V3
+Z18 !s100 jiE3=X3OTRgW5Qa8lF`WX3
+Z19 I4kLnQf]Nkn5AVSiQ2TIoD0
+Z20 VL]nd9?C>8>oZQ72GFCz4V3
 R4
-Z20 w1445979274
-Z21 8./seg7Control.v
-Z22 F./seg7Control.v
-L0 38
+Z21 w1446003218
+Z22 8./seg7Control.v
+Z23 F./seg7Control.v
+L0 39
 R8
 r1
 31
-Z23 !s108 1445979380.000000
-Z24 !s107 ./seg7Control.v|
-Z25 !s90 -reportprogress|300|./seg7Control.v|
+Z24 !s108 1446053996.101000
+Z25 !s107 ./seg7Control.v|
+Z26 !s90 -reportprogress|300|./seg7Control.v|
 o-O0
 !i10b 1
-Z26 !s100 dhcPzH1RQT:A<]ene6aio3
 !s85 0
 !s101 -O0
 vseg7Control
-Z27 Ihb9?=Ae:<;Gc@ANC9RCdX3
-Z28 VI^9=Yj0oXEXm]3TT]]_kG0
+Z27 !s100 JiHGNSgPn0]ZQn=^H]B5<2
+Z28 IEW`9lNFf3^M78GB8g6iNb0
+Z29 VOJ4DSe?PH?AMYG1^AP<UT3
 R4
-R20
 R21
 R22
+R23
 L0 14
 R8
 r1
 31
-R23
 R24
 R25
+R26
 o-O0
-Z29 nseg7@control
+Z30 nseg7@control
 !i10b 1
-Z30 !s100 IaF>b1z]^k5ATOHIfR4`m0
 !s85 0
 !s101 -O0
 vseg7Control_testbench
-Z31 IjnBN9[JL7EUe0@<70M0Zk1
-Z32 VYkTPh<M=bQb5l3`AfSIFY1
+Z31 !s100 69kY>Zz58[WAC1GQ?`TIc0
+Z32 I`8mbbN>J_NN[TFJ4Z>e`e3
+Z33 VYkTPh<M=bQb5l3`AfSIFY1
 R4
-R20
 R21
 R22
-L0 59
+R23
+L0 61
 R8
 r1
 31
-R23
 R24
 R25
+R26
 o-O0
-Z33 nseg7@control_testbench
+Z34 nseg7@control_testbench
 !i10b 1
-Z34 !s100 @`Kdf>cfoTYbNkohj80FO2
 !s85 0
 !s101 -O0
 vsram256x8
 !i10b 1
-Z35 !s100 S?T>R1dfT=E1[O9JSW?f33
-Z36 IIDN?E;g<Y4DD4QR<EUJCJ3
+Z35 !s100 e9PE0oXeV5>1K>il@U?Za3
+Z36 IbekVjN_eWoDaeDZIO0zo_0
 Z37 Ve]X1^P69I63QBV?N=I2c22
 R4
-Z38 w1445929598
+Z38 w1446016394
 Z39 8./sram256x8.v
 Z40 F./sram256x8.v
 L0 17
@@ -116,7 +116,7 @@ R8
 r1
 !s85 0
 31
-!s108 1445979382.009000
+!s108 1446053996.460000
 !s107 ./sram256x8.v|
 Z41 !s90 -reportprogress|300|./sram256x8.v|
 !s101 -O0

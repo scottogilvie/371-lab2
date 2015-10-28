@@ -21,12 +21,6 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	input rst;
 	
 	assign ledr[9:8] = 2'b0;
-//	assign hex0 = 7'b0;
-//	assign hex1 = 7'b0;
-//	assign hex2 = 7'b0;
-//	assign hex3 = 7'b0;
-//	assign hex4 = 7'b0;
-//	assign hex5 = 7'b0;
 	
 	reg [7:0] sramlData, sramAddress;
 	wire [7:0] sramData;
@@ -77,7 +71,7 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	wire [7:0] displayBus 	= displayReg;
 	assign ledr[7:0]			= displayBus;
 	
-	seg7Control seg7 (hex0, hex1, hex2, hex3, hex4, hex5, displayBus);
+	seg7Control seg7 (hex0, hex1, hex2, hex3, hex4, hex5, displayBus, {sw[4], sw[1], sw[0]});
 	
 	reg [6:0] startIndex, computeIndex;
 	reg [5:0] displayIndex;
@@ -107,14 +101,41 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 			endcase
 		end else begin
 			// Assign all reg's in each branch to avoid inferred latches!
+			/*
+			sramNCs
+			sramNOe
+			sramNWe
+			sramAddress
+			sramlData
+			startIndex
+			computeIndex
+			displayIndex
+			computeReg1
+			computeReg2
+			resultReg
+			remainderReg
+			displayReg
+			*/
 			case (presState)
 				IDLE: begin
-					displayReg = 8'h99;
-					nextState = IDLE;
+					sramNCs 		= 0;
+					sramNOe 		= 0;
+					sramNWe		= 1;
+					sramAddress = 0;
+				
+					computeReg1 	= 0;
+					computeReg2 	= 0;
+					resultReg 		= 0;
+					remainderReg 	= 0;
+					displayReg 		= 0;
+				
+					startIndex 		= 0;
+					computeIndex 	= 0;
+					displayIndex 	= 0;
+					nextState 	= IDLE;
 				end
 				
 				START_RUN: begin
-					displayReg = 8'h00;
 					if (startIndex > 31) begin
 						nextState 	= START_DONE;
 						startIndex 	= 0;
@@ -123,18 +144,26 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 						sramNOe 		= 1;
 						sramNWe		= 1;
 						sramAddress = startIndex;
-						sramlData 	= startIndex % 11 + startIndex;
+						sramlData 	= startIndex % 4;
 						nextState 	= START_STROBELO;
 					end
 				end
 				
 				START_STROBELO: begin
-					sramNWe = 0;
+					sramNCs 		= 0;
+					sramNOe 		= 1;
+					sramNWe 		= 0;
+					sramAddress = startIndex;
+					sramlData 	= startIndex % 4;
 					nextState = START_STROBEHI;
 				end
 				
 				START_STROBEHI: begin
-					sramNWe 		= 1;
+					sramNCs 		= 0;
+					sramNOe 		= 1;
+					sramNWe 		= 0;
+					sramAddress = startIndex;
+					sramlData 	= startIndex % 4;
 					startIndex	= startIndex + 7'd1;
 					displayReg	= startIndex;
 					nextState 	= START_RUN;
@@ -155,6 +184,11 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 						computeIndex 	= 0;
 						nextState 		= COMPUTE_DONE;
 					end else begin
+						computeReg1 = 0;
+						computeReg2 = 0;
+						resultReg	= 0;
+						remainderReg = 0;
+						sramAddress		= computeIndex;
 						nextState		= COMPUTE_LOAD1;
 					end
 				end
@@ -168,6 +202,10 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 				end
 				
 				COMPUTE_LOAD1_READ: begin
+					sramNCs 		= 0;
+					sramNOe		= 0;
+					sramNWe		= 1;
+					sramAddress = computeIndex;
 					computeReg1 = sramData;
 					nextState	= COMPUTE_LOAD2;
 				end
@@ -181,11 +219,21 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 				end
 				
 				COMPUTE_LOAD2_READ: begin
+					sramNCs 		= 0;
+					sramNOe		= 0;
+					sramNWe		= 1;
+					sramAddress = computeIndex + 8'd16;
 					computeReg2 = sramData;
 					nextState	= COMPUTE_RESULT;
 				end
 				
 				COMPUTE_RESULT: begin
+					sramNCs 		= 0;
+					sramNOe		= 0;
+					sramNWe		= 1;
+					sramAddress = computeIndex + 8'd32;
+					sramlData 	= resultReg;
+				
 					case (sw[3:2])
 						opAdd: begin
 							resultReg = computeReg1 + computeReg2;
@@ -211,37 +259,42 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 				end
 				
 				COMPUTE_RESULT_LOAD: begin
+					sramNCs 		= 0;
+					sramNOe		= 0;
+					sramNWe		= 1;
+					sramAddress = computeIndex + 8'd32;
 					sramlData 	= resultReg;
 					nextState	= COMPUTE_WRITE;
 				end
 				
 				COMPUTE_WRITE: begin
 					sramNCs 		= 0;
-					sramNOe		= 1;
+					sramNOe		= 0;
 					sramNWe		= 1;
 					sramAddress = computeIndex + 8'd32;
+					sramlData 	= resultReg;
 					nextState	= COMPUTE_STROBELO;
 				end
 				
 				COMPUTE_STROBELO: begin
+					sramNCs 		= 0;
+					sramNOe		= 1;
 					sramNWe		= 0;
+					sramAddress = computeIndex + 8'd32;
 					nextState	= COMPUTE_STROBEHI;
 				end
 				
 				COMPUTE_STROBEHI: begin
-					sramNWe			= 1;
+					sramNCs 		= 0;
+					sramNOe		= 1;
+					sramNWe		= 1;
+					sramAddress = computeIndex + 8'd32;
 					computeIndex	= computeIndex + 7'd1;
 					displayReg		= computeIndex;
 					nextState		= COMPUTE_RUN;
 				end
 				
 				COMPUTE_DONE: begin
-					sramNCs 		= 0;
-					sramNOe 		= 0;
-					sramNWe		= 1;
-					sramAddress = 8'b0;
-					sramlData	= 8'b0;
-					displayReg	= 8'b10;
 					nextState 	= COMPUTE_DONE;
 				end
 				
@@ -278,17 +331,16 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 				end
 				
 				DISPLAY_READ: begin
+					sramNCs		= 0;
+					sramNOe		= 0;
+					sramNWe		= 1;
+					sramAddress	= displayIndex + 6'd32;
 					resultReg		= sramData;
-					nextState 		= DISPLAY;
 					displayIndex 	= displayIndex + 6'b1;
+					nextState 		= DISPLAY;
 				end
 				
 				default: begin
-					sramNCs 		= 0;
-					sramNOe 		= 0;
-					sramNWe		= 1;
-					sramAddress = 8'b0;
-					sramlData	= 8'b0;
 					nextState 	= IDLE;
 				end
 			endcase
@@ -351,6 +403,7 @@ module fourFuncCalc_stated_testbench;
 		
 		// enter DISPLAY state
 		sw[1:0] = 2'b11;
+		sw[4] = 1'b1;
 		@(posedge clk); key[0] = 1;
 		@(posedge clk); key[0] = 0;
 		@(posedge clk); key[0] = 1;

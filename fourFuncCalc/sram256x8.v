@@ -22,10 +22,10 @@ module sram256x8(data, add, nCs, nOe, nWe);
     input nWe;          // Write Enable active low
     reg [7:0] mem [0:255];  // Address, data
 
-    assign data = (!nOe & !nCs) ? mem[add] : 8'bZ ;
-	
-    always@ (!nWe & !nCs)
-    begin
+    assign data = (~nOe & ~nCs) ? mem[add] : 8'bZ;
+
+	always @(posedge nWe) begin
+		if (~nCs)
         mem[add] = data;
     end
 	

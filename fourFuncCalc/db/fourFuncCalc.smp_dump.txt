@@ -1,16 +1,21 @@
 
-State Machine - |fourFuncCalc_top|fourFuncCalc_stated:ffc|nextState
-Name nextState.DISPLAY~0 nextState.COMPUTE_DONE~0 nextState.COMPUTE_STROBEHI~0 nextState.COMPUTE_WRITE~0 nextState.COMPUTE_RESULT~0 nextState.COMPUTE_LOAD2~0 nextState.COMPUTE_LOAD1~0 nextState.COMPUTE_RUN~0 nextState.START_DONE~0 nextState.START_STROBEHI~0 nextState.START_STROBELO~0 nextState.START_RUN~0 nextState.IDLE~0 
-nextState.IDLE~0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-nextState.START_RUN~0 0 0 0 0 0 0 0 0 0 0 0 1 1 
-nextState.START_STROBELO~0 0 0 0 0 0 0 0 0 0 0 1 0 1 
-nextState.START_STROBEHI~0 0 0 0 0 0 0 0 0 0 1 0 0 1 
-nextState.START_DONE~0 0 0 0 0 0 0 0 0 1 0 0 0 1 
-nextState.COMPUTE_RUN~0 0 0 0 0 0 0 0 1 0 0 0 0 1 
-nextState.COMPUTE_LOAD1~0 0 0 0 0 0 0 1 0 0 0 0 0 1 
-nextState.COMPUTE_LOAD2~0 0 0 0 0 0 1 0 0 0 0 0 0 1 
-nextState.COMPUTE_RESULT~0 0 0 0 0 1 0 0 0 0 0 0 0 1 
-nextState.COMPUTE_WRITE~0 0 0 0 1 0 0 0 0 0 0 0 0 1 
-nextState.COMPUTE_STROBEHI~0 0 0 1 0 0 0 0 0 0 0 0 0 1 
-nextState.COMPUTE_DONE~0 0 1 0 0 0 0 0 0 0 0 0 0 1 
-nextState.DISPLAY~0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+State Machine - |fourFuncCalc_top|fourFuncCalc_stated:ffc|presState
+Name presState.DISPLAY_READ presState.DISPLAY presState.COMPUTE_DONE presState.COMPUTE_STROBEHI presState.COMPUTE_STROBELO presState.COMPUTE_WRITE presState.COMPUTE_RESULT_LOAD presState.COMPUTE_RESULT presState.COMPUTE_LOAD2_READ presState.COMPUTE_LOAD2 presState.COMPUTE_LOAD1_READ presState.COMPUTE_LOAD1 presState.COMPUTE_RUN presState.START_DONE presState.START_STROBEHI presState.START_STROBELO presState.START_RUN presState.IDLE 
+presState.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+presState.START_RUN 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+presState.START_STROBELO 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+presState.START_STROBEHI 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+presState.START_DONE 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+presState.COMPUTE_RUN 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+presState.COMPUTE_LOAD1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+presState.COMPUTE_LOAD1_READ 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+presState.COMPUTE_LOAD2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+presState.COMPUTE_LOAD2_READ 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_RESULT 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_RESULT_LOAD 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_WRITE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_STROBELO 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_STROBEHI 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+presState.COMPUTE_DONE 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+presState.DISPLAY 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+presState.DISPLAY_READ 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
