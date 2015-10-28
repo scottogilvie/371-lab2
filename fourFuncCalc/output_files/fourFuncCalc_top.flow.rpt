@@ -1,5 +1,5 @@
 Flow report for fourFuncCalc_top
-Tue Oct 27 12:50:36 2015
+Tue Oct 27 13:55:09 2015
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Full Version
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Oct 27 12:50:35 2015       ;
+; Flow Status                     ; Successful - Tue Oct 27 13:55:07 2015       ;
 ; Quartus II 64-Bit Version       ; 14.0.0 Build 200 06/17/2014 SJ Full Version ;
 ; Revision Name                   ; fourFuncCalc_top                            ;
 ; Top-level Entity Name           ; fourFuncCalc_stated                         ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/27/2015 12:50:17 ;
+; Start date & time ; 10/27/2015 13:54:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fourFuncCalc_top    ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------+------------------+---------------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value    ; Entity Name         ; Section Id     ;
 +-------------------------------------+---------------------------------+------------------+---------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 278145011581513.144597541606936 ; --               ; --                  ; --             ;
+; COMPILER_SIGNATURE_ID               ; 278145011581513.144597927908784 ; --               ; --                  ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --               ; --                  ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>           ; --                  ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --               ; --                  ; --             ;
@@ -97,8 +97,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 675 MB              ; 00:00:04                           ;
-; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:04                           ;
+; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 683 MB              ; 00:00:05                           ;
+; Total                ; 00:00:23     ; --                      ; --                  ; 00:00:05                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

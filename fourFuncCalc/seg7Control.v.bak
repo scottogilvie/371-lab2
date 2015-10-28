@@ -1,0 +1,10 @@
+module seg7Control(
+	out,
+	in
+);
+
+endmodule
+
+module seg7Control_testbench;
+
+endmodule

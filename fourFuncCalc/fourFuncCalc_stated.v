@@ -21,12 +21,12 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	input rst;
 	
 	assign ledr[9:8] = 2'b0;
-	assign hex0 = 7'b0;
-	assign hex1 = 7'b0;
-	assign hex2 = 7'b0;
-	assign hex3 = 7'b0;
-	assign hex4 = 7'b0;
-	assign hex5 = 7'b0;
+//	assign hex0 = 7'b0;
+//	assign hex1 = 7'b0;
+//	assign hex2 = 7'b0;
+//	assign hex3 = 7'b0;
+//	assign hex4 = 7'b0;
+//	assign hex5 = 7'b0;
 	
 	reg [7:0] sramlData, sramAddress;
 	wire [7:0] sramData;
@@ -74,7 +74,10 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 	reg [7:0] 	resultReg, remainderReg;
 	reg [7:0] 	displayReg;
 	
-	assign ledr[7:0] = displayReg;
+	wire [7:0] displayBus 	= displayReg;
+	assign ledr[7:0]			= displayBus;
+	
+	seg7Control seg7 (hex0, hex1, hex2, hex3, hex4, hex5, displayBus);
 	
 	reg [6:0] startIndex, computeIndex;
 	reg [5:0] displayIndex;
@@ -120,7 +123,7 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 						sramNOe 		= 1;
 						sramNWe		= 1;
 						sramAddress = startIndex;
-						sramlData 	= startIndex;
+						sramlData 	= startIndex % 11 + startIndex;
 						nextState 	= START_STROBELO;
 					end
 				end
@@ -216,8 +219,7 @@ module fourFuncCalc_stated(ledr, hex0, hex1, hex2, hex3, hex4, hex5,
 					sramNCs 		= 0;
 					sramNOe		= 1;
 					sramNWe		= 1;
-					sramAddress = computeIndex + 8'b32;
-//					sramlData	= resultReg;
+					sramAddress = computeIndex + 8'd32;
 					nextState	= COMPUTE_STROBELO;
 				end
 				
@@ -317,7 +319,10 @@ module fourFuncCalc_stated_testbench;
 	integer i;
 	
 	initial begin
+		// set test operation
 		sw[3:2] = 2'b00;
+		
+		// enter IDLE state
 		sw[1:0] = 2'b00;
 		@(posedge clk); key[0] = 1;
 		@(posedge clk); key[0] = 0;
@@ -326,6 +331,7 @@ module fourFuncCalc_stated_testbench;
 			@(posedge clk);
 		end
 		
+		// enter START state
 		sw[1:0] = 2'b01;
 		@(posedge clk); key[0] = 1;
 		@(posedge clk); key[0] = 0;
@@ -334,6 +340,7 @@ module fourFuncCalc_stated_testbench;
 			@(posedge clk);
 		end
 		
+		// enter COMPUTE state
 		sw[1:0] = 2'b10;
 		@(posedge clk); key[0] = 1;
 		@(posedge clk); key[0] = 0;
@@ -342,6 +349,7 @@ module fourFuncCalc_stated_testbench;
 			@(posedge clk);
 		end
 		
+		// enter DISPLAY state
 		sw[1:0] = 2'b11;
 		@(posedge clk); key[0] = 1;
 		@(posedge clk); key[0] = 0;

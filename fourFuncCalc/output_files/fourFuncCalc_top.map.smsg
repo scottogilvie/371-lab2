@@ -2,3 +2,4 @@ Warning (10273): Verilog HDL warning at sram256x8TestBench.v(49): extended using
 Warning (10273): Verilog HDL warning at sram256x8.v(25): extended using "x" or "z"
 Warning (10273): Verilog HDL warning at fourFuncCalc.v(28): extended using "x" or "z"
 Warning (10273): Verilog HDL warning at fourFuncCalc_stated.v(37): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at seg7Control.v(55): extended using "x" or "z"

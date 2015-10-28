@@ -5,6 +5,7 @@ vlib work
 #     All Verilog files that are part of this design should have
 #     their own "vlog" line below.
 vlog "./fourFuncCalc_stated.v"
+vlog "./seg7Control.v"
 vlog "./sram256x8.v"
 
 # Call vsim to invoke simulator

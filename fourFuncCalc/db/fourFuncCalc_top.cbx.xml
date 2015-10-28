@@ -2,6 +2,15 @@
 <LOG_ROOT>
 	<PROJECT NAME="fourFuncCalc_top">
 		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_9am.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_c2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_42m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_h3m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_hbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod4" CBX_FILE_NAME="lpm_divide_82m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_42m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_72m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Mod5" CBX_FILE_NAME="lpm_divide_h3m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_c2m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|fourFuncCalc_stated|seg7Control:seg7|lpm_divide:Div3" CBX_FILE_NAME="lpm_divide_hbm.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
